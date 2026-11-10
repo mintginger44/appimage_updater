@@ -2,11 +2,13 @@ name: Release
 
 on:
   push:
-    tags:
-      - '*.*.*'
-      - 'v*.*.*'
-      - '*.*.*-*'
-      - 'v*.*.*-*'
+    branches:
+      - main
+#    tags:
+#      - '*.*.*'
+#      - 'v*.*.*'
+#      - '*.*.*-*'
+#      - 'v*.*.*-*'
 
 jobs:
   build-and-release:
