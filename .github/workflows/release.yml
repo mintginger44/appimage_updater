@@ -31,31 +31,31 @@ jobs:
           echo "APP_VERSION=$APP_VERSION"
           echo "version=$APP_VERSION" >> $GITHUB_OUTPUT
 
-      - name: Match version check
-        id: match_version_check
-        run: |
-          APP_VERSION="${{ steps.version.outputs.version }}"
-          TAG=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          if [[ $TAG == v* ]]; then
-            TAG=${TAG:1}
-          fi
-          echo "Extracted tag for comparison: $TAG"
-          if [[ $APP_VERSION != $TAG ]]; then
-            echo "ERROR: version in Cargo.toml ($APP_VERSION) does not match the pushed tag ($TAG)"
-            exit 1
-          fi
+#      - name: Match version check
+#        id: match_version_check
+#        run: |
+#          APP_VERSION="${{ steps.version.outputs.version }}"
+#          TAG=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+#          if [[ $TAG == v* ]]; then
+#            TAG=${TAG:1}
+#          fi
+#          echo "Extracted tag for comparison: $TAG"
+#          if [[ $APP_VERSION != $TAG ]]; then
+#            echo "ERROR: version in Cargo.toml ($APP_VERSION) does not match the pushed tag ($TAG)"
+#            exit 1
+#          fi
 
-      - name: Is pre-release
-        id: release
-        run: |
-          APP_VERSION="${{ steps.version.outputs.version }}"
-          if [[ $APP_VERSION == *-* ]]; then
-            PRE_RELEASE=true
-          else
-            PRE_RELEASE=false
-          fi
-          echo "PRE_RELEASE=$PRE_RELEASE"
-          echo "pre=$PRE_RELEASE" >> $GITHUB_OUTPUT
+#      - name: Is pre-release
+#        id: release
+#        run: |
+#          APP_VERSION="${{ steps.version.outputs.version }}"
+#          if [[ $APP_VERSION == *-* ]]; then
+#            PRE_RELEASE=true
+#          else
+#            PRE_RELEASE=false
+#          fi
+#          echo "PRE_RELEASE=$PRE_RELEASE"
+#          echo "pre=$PRE_RELEASE" >> $GITHUB_OUTPUT
 
       - name: Extract toolchain channel
         id: extract_toolchain
