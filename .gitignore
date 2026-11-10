@@ -17,3 +17,6 @@ target/
 
 # Release assets
 release/
+
+# jetbrains
+.idea/

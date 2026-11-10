@@ -10,8 +10,6 @@
 
 A CLI tool to look for AppImages in your $PATH and call appimageupdatetool to update them.
 
-![GIF Image with demo of the tool](./assets/appimageupdater.gif)
-
 ## Install
 
 ### Binary
