@@ -20,3 +20,6 @@ release/
 
 # jetbrains
 .idea/
+
+# developer info
+hold/
